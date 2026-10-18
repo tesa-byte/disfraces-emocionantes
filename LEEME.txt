@@ -1,0 +1,21 @@
+DISFRACES EMOCIONANTES · Versión terminada
+
+CÓMO ABRIRLA
+Abre index.html con Chrome, Edge o Safari. No requiere instalación ni conexión para las imágenes y el juego. Mantén index.html junto a las carpetas css, data, js e img. Si recibes el ZIP, descomprímelo antes de abrir index.html.
+
+USO
+Selecciona el nivel, ajusta las pistas, la reflexión sobre lo que piensan los personajes y la lectura automática. Pulsa «¡COMENZAR MISIÓN!», escucha o lee el cuento y gira la ruleta. Elige la emoción que muestra el personaje. Cada escena acertada suma un caramelo, una sola vez. Las 28 escenas aparecen sin repetirse. El botón Inicio permite cambiar la configuración; comenzar una misión inicia una partida nueva.
+
+VOZ
+Se da prioridad a una voz femenina es-ES, con tono normal y velocidad 0,90×. En la portada, despliega «Voz de lectura» para elegir otra voz, ajustar la velocidad y escuchar una muestra. La selección se guarda cuando el navegador permite almacenamiento local. El género se estima por el nombre de la voz; la disponibilidad y la naturalidad dependen del dispositivo. La voz depende de las voces instaladas y de la compatibilidad del navegador. Para narración sin conexión, instala una voz de español de España en el dispositivo. El altavoz superior activa o silencia la voz; «Escuchar» permite leer la escena aunque la lectura automática esté desactivada.
+
+CAMBIOS
+Textos reparados en UTF-8 y revisados en castellano de España. Interfaz en castellano. 28 imágenes vinculadas, incluidas dos nuevas escenas: fantasma triste y hombre lobo asustado. Icono de mTiny de Halloween integrado. Ajustes de accesibilidad, espacio y controles. Corregida la puntuación duplicada y los giros pendientes al salir de la ruleta.
+
+COMPROBACIONES
+Verificada la lógica de las 28 escenas, recursos, opciones de respuesta, aciertos y errores, puntuación única, final, reinicio, pistas y opción de teoría de la mente. No ha sido posible realizar la prueba visual en navegador por las restricciones del entorno. Quedan por comprobar en el dispositivo de clase la voz, la disposición visual y la interacción táctil.
+
+Esta es una copia independiente. La carpeta original de Descargas conserva sus archivos.
+
+NARRACIÓN INICIAL GRABADA
+La introducción utiliza el archivo facilitado por la autora (audio/introduccion.mp3). Se reproduce al comenzar si la lectura automática está activada y también con «Escuchar». Se detiene al continuar o silenciar la voz. El resto de las escenas mantiene las voces del dispositivo.

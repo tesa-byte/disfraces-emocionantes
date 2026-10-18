@@ -1,0 +1,5 @@
+Las dos ilustraciones nuevas se generaron con la herramienta integrada de generación de imágenes.
+
+fantasma_triste.png: Ilustración infantil cuadrada de Halloween, estilo cuento pintado digitalmente, tonos violeta y naranja, calle de adoquines. Niño disfrazado de fantasma con expresión triste, hombros caídos, cubo de calabaza vacío y recipiente de caramelos vacío en una puerta. Sin texto.
+
+lobo_asustado.png: Ilustración infantil cuadrada de Halloween, estilo cuento pintado digitalmente, tonos violeta y naranja. Niño con disfraz de hombre lobo marrón y bufanda roja que se esconde tras un árbol al escuchar un aullido entre la niebla. Ojos abiertos y expresión de miedo. Ambiente apropiado para niños, sin texto.

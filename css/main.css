@@ -1,0 +1,899 @@
+/* ==========================================================================
+   DISFRACES DIVERTIDOS - Hoja de Estilos Principal (100% Offline / Standalone)
+   Diseño adaptado a PDI, Tablets y Escritorio sin dependencias externas
+   ========================================================================== */
+
+:root {
+  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --bg-gradient: radial-gradient(circle at 50% 20%, #2e1065 0%, #1e1b4b 60%, #0f172a 100%);
+  --accent-orange: #f97316;
+  --accent-yellow: #facc15;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+  --text-main: #f8fafc;
+  --text-dark: #1e293b;
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --card-border: #e2e8f0;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.35);
+  --shadow-press: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
+/* --- BARRA SUPERIOR (HEADER) --- */
+.app-header {
+  height: 64px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  z-index: 50;
+  position: sticky;
+  top: 0;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(250, 204, 21, 0.4));
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #fbbf24, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.candy-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(250, 204, 21, 0.6);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  color: #fef08a;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.candy-counter.bounce {
+  animation: bounceCandy 0.6s ease;
+}
+
+@keyframes bounceCandy {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.35) rotate(10deg); }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.icon-btn:active {
+  transform: translateY(0);
+}
+
+.icon-btn.active {
+  background: var(--accent-orange);
+  border-color: #ea580c;
+}
+
+/* --- CONTENEDOR PRINCIPAL Y PANTALLAS (SPA) --- */
+.main-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 1. PANTALLA DE PORTADA (HOME) --- */
+.hero-card {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 4px solid #fde047;
+}
+
+.hero-visual {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #4c1d95, #1e1b4b);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+.hero-mtiny-preview {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 50%;
+  border: 5px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: floatMtiny 3s ease-in-out infinite;
+}
+
+.hero-mtiny-preview img {
+  width: 60px;
+  height: auto;
+}
+
+@keyframes floatMtiny {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 0.25rem;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+/* SELECTOR DE NIVELES */
+.config-section {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.config-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.level-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.level-btn {
+  background: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  color: #334155;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.level-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.level-btn.active {
+  background: #ea580c;
+  color: #fff;
+  border-color: #c2410c;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+}
+
+.toggles-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.toggle-chip {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.toggle-chip input {
+  accent-color: #ea580c;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  color: #fff;
+  border: none;
+  border-bottom: 5px solid #9a3412;
+  border-radius: var(--radius-md);
+  padding: 1rem 2.5rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  border-bottom-width: 1px;
+  transform: translateY(4px);
+}
+
+/* --- 2. PANTALLA DE INTRODUCCIÓN (CUENTO) --- */
+.intro-container {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  max-width: 760px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 4px solid #a855f7;
+}
+
+.mtiny-storyteller {
+  width: 110px;
+  height: 110px;
+  background: #f8fafc;
+  border: 6px solid #a855f7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+  animation: pulseAvatar 2.5s infinite;
+}
+
+@keyframes pulseAvatar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.mtiny-storyteller img {
+  width: 70px;
+  height: auto;
+}
+
+.story-box {
+  background: #f1f5f9;
+  border-left: 6px solid #8b5cf6;
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  text-align: left;
+  margin-bottom: 1.75rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.story-box p {
+  margin-bottom: 0.8rem;
+}
+.story-box p:last-child {
+  margin-bottom: 0;
+  font-weight: 700;
+  color: #6b21a8;
+}
+
+.action-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --- 3. PANTALLA DE RULETA (ROULETTE) --- */
+.roulette-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.roulette-header {
+  text-align: center;
+}
+
+.roulette-status-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fde047;
+}
+
+.wheel-container {
+  position: relative;
+  width: 440px;
+  height: 440px;
+  max-width: 82vw;
+  max-height: 82vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 36px solid #ef4444;
+  z-index: 20;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+}
+
+#wheel-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px solid #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: transform 0.1s linear;
+}
+
+.wheel-hub {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  background: #ffffff;
+  border: 5px solid #10b981;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 4. PANTALLA PRINCIPAL DE ACTIVIDAD (ESTILO CENTRADO INSPIRADO EN LA VOCECITA) --- */
+.activity-card-vocecita {
+  background: #ffffff;
+  border: 6px solid #facc15;
+  border-radius: 28px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 820px;
+  max-height: calc(100vh - 84px);
+  height: calc(100vh - 84px);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-dark);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* CABECERA DE LA ACTIVIDAD */
+.activity-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px dashed #f1f5f9;
+}
+
+.activity-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activity-icon {
+  font-size: 1.4rem;
+}
+
+.scene-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.audio-pill-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border: none;
+  color: #fff;
+  border-radius: 9999px;
+  padding: 0.35rem 0.95rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.audio-pill-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ESCENARIO CENTRAL: ILUSTRACIÓN 1:1 PROTAGONISTA */
+.scene-stage-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  padding: 0.25rem 0;
+}
+
+.scene-image-card {
+  height: 100%;
+  max-height: min(44vh, 380px);
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  background: #f8fafc;
+  border: 3px solid #e2e8f0;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scene-placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* NARRACIÓN Y PISTAS */
+.scene-info-center {
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scene-desc {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.35;
+  max-width: 640px;
+}
+
+.hint-box {
+  background: #fffbeb;
+  border: 2px dashed #f59e0b;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.8rem;
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  color: #92400e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  animation: fadeIn 0.3s ease;
+}
+
+.hint-box.active {
+  display: flex;
+}
+
+/* BARRA DE EMOCIONES: 7 TESELAS PROTAGONISTAS */
+.emotions-tiles-bar {
+  width: 100%;
+  padding-top: 0.35rem;
+}
+
+.emotions-grid-vocecita {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.emotion-card-btn {
+  background: #ffffff;
+  border: 3px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 0.4rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.emotion-card-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.emotion-card-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.emotion-card-btn img {
+  width: 44px;
+  height: 44px;
+  max-width: 80%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.emotion-name {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #334155;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ZONA DE REFLEXIÓN / BOTÓN DE SEGUIR JUGANDO */
+.activity-action-zone {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reflection-box-vocecita {
+  background: #f5f3ff;
+  border: 2px solid #c4b5fd;
+  border-radius: 14px;
+  padding: 0.6rem 0.85rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.reflection-header-vocecita {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reflection-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #6d28d9;
+  text-transform: uppercase;
+}
+
+.reflection-question {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.reflection-tom-sub {
+  font-size: 0.82rem;
+  color: #475569;
+  font-style: italic;
+}
+
+.btn-next-vocecita {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-bottom: 4px solid #047857;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  animation: pulseAvatar 2s infinite;
+}
+
+.btn-next-vocecita:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.btn-next-vocecita:active {
+  transform: translateY(2px);
+  border-bottom-width: 0;
+}
+
+/* --- 5. PANTALLA FINAL (CELEBRACIÓN) --- */
+.final-card {
+  background: var(--card-bg);
+  color: var(--text-dark);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid #facc15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.final-badge {
+  font-size: 4rem;
+  animation: bounceTrophy 1.5s infinite;
+}
+
+@keyframes bounceTrophy {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(5deg); }
+}
+
+.final-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.final-desc {
+  font-size: 1.2rem;
+  color: #475569;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* --- CANVAS CONFETI --- */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* --- MODAL DIALOG / OVERLAY --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid #10b981;
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.teacher-select {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #4338ca;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVIDAD PARA PDI, TABLET Y MÓVIL --- */
+@media (max-width: 768px) {
+  .activity-card-vocecita {
+    padding: 0.75rem;
+    max-height: none;
+    height: auto;
+    overflow-y: auto;
+  }
+  .emotions-grid-vocecita {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .scene-image-card {
+    max-height: 280px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-title { font-size: 1.8rem; }
+  .wheel-container { width: 300px; height: 300px; }
+  .emotions-grid-vocecita { grid-template-columns: repeat(4, 1fr); }
+  .emotion-name { font-size: 0.68rem; }
+  .app-header { padding: 0 0.75rem; }
+  .brand-title { font-size: 1.05rem; }
+}
+
+
+
+/* Ajustes finales de accesibilidad y espacio disponible. */
+button:focus-visible, [role="button"]:focus-visible, select:focus-visible { outline: 4px solid #7c3aed; outline-offset: 3px; }
+button:disabled { cursor: default; }
+.scene-feedback { font-weight: 700; color: #065f46; text-align: center; padding: .3rem; }
+.activity-card-vocecita { height: auto; max-height: none; min-height: calc(100dvh - 100px); gap: .6rem; overflow: visible; }
+.scene-stage-center { flex: none; }
+.scene-image-card { width: min(100%, 390px, 43vh); height: auto; max-height: none; }
+.hero-mtiny-preview img, .mtiny-storyteller img { width: 100%; height: 100%; object-fit: contain; }
+.audio-pill-btn, .icon-btn, .teacher-select { min-height: 44px; }
+.reflection-header-vocecita { flex-wrap: wrap; gap: .5rem; }
+@media (max-width: 768px) { .scene-image-card { width: min(100%, 340px); } .hero-card, .intro-container { padding: 1.1rem; } .hero-cast { gap: .5rem; font-size: 1.5rem; } .header-status { gap: .4rem; } .brand-group { gap: .3rem; } .brand-title { font-size: .95rem; } .candy-counter { padding: .3rem .5rem; } .emotion-card-btn { min-height: 80px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+.voice-settings { width: 100%; text-align: left; padding: .85rem 1rem; margin-bottom: 1.25rem; background: #f5f3ff; border: 1px solid #c4b5fd; border-radius: 14px; }
+.voice-settings summary { cursor: pointer; font-weight: 700; color: #5b21b6; min-height: 30px; }
+.voice-settings label { display: block; margin-top: .8rem; font-weight: 600; }
+.voice-settings select { width: 100%; min-height: 44px; margin-top: .4rem; font: inherit; border: 1px solid #94a3b8; border-radius: 8px; background: white; padding: .5rem; }
+.voice-settings p { font-size: .85rem; line-height: 1.4; margin-top: .5rem; color: #475569; }
+.voice-settings input[type="range"] { width: 100%; margin: .65rem 0; accent-color: #7c3aed; }

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Disfraces emocionantes · mTiny aprende emociones en Halloween</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR PERSISTENTE (HEADER) -->
+  <header class="app-header">
+    <div class="brand-group" id="header-home-btn" title="Ir al inicio" role="button" tabindex="0" aria-label="Ir al inicio">
+      <span class="brand-icon">🎃</span>
+      <div>
+        <h1 class="brand-title">Disfraces emocionantes</h1>
+      </div>
+    </div>
+
+    <div class="header-status">
+      <div class="candy-counter" title="Caramelos recolectados en la bolsa">
+        <span>🍬</span>
+        <span id="candy-count">0 / 28</span>
+      </div>
+      <div class="header-actions">
+        <button id="header-tts-btn" class="icon-btn active" title="Activar o desactivar la voz" aria-label="Activar o desactivar la voz">🔊</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESCENARIO PRINCIPAL (SPA) -->
+  <main class="main-stage">
+
+    <!-- 1. PANTALLA DE PORTADA (HOME) -->
+    <section id="screen-home" class="screen active">
+      <div class="hero-card">
+        <div class="hero-visual">
+          <div class="hero-cast">
+            <span>🧙‍♀️</span>
+            <span>🧛‍♂️</span>
+            <div class="hero-mtiny-preview" title="Robot mTiny">
+              <img src="img/mtiny_halloween.png" alt="mTiny disfrazado para Halloween">
+            </div>
+            <span>🐺</span>
+            <span>👻</span>
+            <span>🧟</span>
+            <span>🐱</span>
+          </div>
+        </div>
+
+        <h2 class="hero-title">DISFRACES EMOCIONANTES</h2>
+        <p class="hero-subtitle">mTiny aprende a reconocer emociones en Halloween</p>
+
+        <!-- SELECTOR DE NIVEL EDUCATIVO -->
+        <div class="config-section">
+          <span class="config-label">Selecciona el nivel de aprendizaje:</span>
+          <div class="level-pills">
+            <button class="level-btn" data-level="infantil3">Infantil 3 años</button>
+            <button class="level-btn" data-level="infantil4">Infantil 4 años</button>
+            <button class="level-btn active" data-level="infantil5">Infantil 5 años</button>
+            <button class="level-btn" data-level="primaria">Primer ciclo de Primaria</button>
+            <button class="level-btn" data-level="educacion_especial">Educación especial</button>
+          </div>
+        </div>
+
+        <!-- OPCIONES Y CONFIGURACIÓN -->
+        <div class="toggles-row">
+          <label class="toggle-chip">
+            <input type="checkbox" id="cfg-tom" checked> Teoría de la mente
+          </label>
+          <label class="toggle-chip">
+            <input type="checkbox" id="cfg-hints" checked> Pistas progresivas
+          </label>
+          <label class="toggle-chip">
+            <input type="checkbox" id="cfg-audio" checked> Lectura automática
+          </label>
+        </div>
+
+        <details class="voice-settings">
+          <summary>🎙️ Voz de lectura · elegir y probar</summary>
+          <label for="cfg-voice">Voz</label>
+          <select id="cfg-voice"><option value="">Automática · preferencia femenina de España</option></select>
+          <p id="voice-note">Las voces disponibles dependen del dispositivo.</p>
+          <label for="cfg-rate">Velocidad de lectura: <output id="voice-rate-value" for="cfg-rate">0,90×</output></label>
+          <input id="cfg-rate" type="range" min="0.75" max="1.1" step="0.05" value="0.9">
+          <button id="btn-test-voice" class="audio-pill-btn" type="button">🔊 Escuchar una muestra</button>
+        </details>
+
+        <button id="btn-start-mission" class="btn-primary">
+          <span>🚀</span> ¡COMENZAR MISIÓN!
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. PANTALLA DE INTRODUCCIÓN NARRATIVA (CUENTO) -->
+    <section id="screen-intro" class="screen">
+      <div class="intro-container">
+        <div class="mtiny-storyteller">
+          <img src="img/mtiny_halloween.png" alt="mTiny disfrazado para Halloween">
+        </div>
+
+        <h2 class="hero-title" style="color: #6b21a8; font-size: 1.8rem; margin-bottom: 0.5rem;">
+          La noche mágica de Halloween
+        </h2>
+
+        <div class="story-box">
+          <p>¡Hola! Soy el robot <strong>mTiny</strong>.</p>
+          <p>Es la noche de Halloween y quiero acompañar a mi amiga <strong>Sara</strong> a hacer <em>truco o trato</em> para llenar nuestra bolsa de caramelos.</p>
+          <p>Pero tengo un pequeño problema: ¡todavía no sé reconocer cómo se sienten los demás personajes cuando van disfrazados!</p>
+          <p>¿Me ayudas a aprender las siete emociones y estados y a conseguir todos los caramelos?</p>
+        </div>
+
+        <div class="action-row">
+          <button id="btn-intro-continue" class="btn-primary">
+            <span>🎲</span> ¡VAMOS A LA RULETA!
+          </button>
+          <button id="btn-intro-listen" class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); border-bottom-color: #4c1d95;">
+            <span>🔊</span> ESCUCHAR
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PANTALLA DE LA RULETA (ROULETTE) -->
+    <section id="screen-roulette" class="screen">
+      <div class="roulette-wrapper">
+        <div class="roulette-header">
+          <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.35rem; color: #fde047;">
+            🎡 Ruleta del Misterio
+          </h2>
+          <span class="roulette-status-badge" id="roulette-remaining">28 imágenes restantes</span>
+        </div>
+
+        <div class="wheel-container">
+          <div class="wheel-pointer"></div>
+          <canvas id="wheel-canvas" width="440" height="440"></canvas>
+          <div class="wheel-hub">🎃</div>
+        </div>
+
+        <button id="btn-spin-wheel" class="btn-primary" style="font-size: 1.5rem; padding: 1.1rem 3rem;">
+          <span>🎲</span> ¡GIRAR RULETA!
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. PANTALLA PRINCIPAL DE ACTIVIDAD (ESTILO CENTRADO INSPIRADO EN LA VOCECITA) -->
+    <section id="screen-activity" class="screen">
+      <div class="activity-card-vocecita">
+
+        <!-- CABECERA: TÍTULO Y BOTÓN DE VOZ -->
+        <div class="activity-header-row">
+          <div class="activity-title-group">
+            <span class="activity-icon">🎭</span>
+            <h3 class="scene-title" id="scene-title">Título de la Escena</h3>
+          </div>
+          <button id="scene-audio-btn" class="audio-pill-btn" title="Escuchar narración">
+            <span>🔊</span> Escuchar
+          </button>
+        </div>
+
+        <!-- CONTENEDOR CENTRAL: ILUSTRACIÓN 1:1 PROTAGONISTA -->
+        <div class="scene-stage-center">
+          <div class="scene-image-card" id="scene-image-container">
+            <!-- La imagen 1:1 o SVG se inyecta dinámicamente -->
+          </div>
+        </div>
+
+        <!-- NARRACIÓN Y PISTA PROGRESIVA -->
+        <div class="scene-info-center">
+          <p class="scene-desc" id="scene-desc">Descripción de la situación.</p>
+          <div class="hint-box" id="scene-hint-box">
+            <span id="scene-hint-text">💡 Pista: Observa su expresión.</span>
+          </div>
+        </div>
+
+        <p id="scene-feedback" class="scene-feedback" role="status" aria-live="polite"></p>
+        <!-- BARRA DE EMOCIONES: MÁXIMO PROTAGONISMO (7 TESELAS ALINEADAS) -->
+        <div class="emotions-tiles-bar">
+          <div class="emotions-grid-vocecita" id="emotions-buttons-grid">
+            <!-- Las 7 teselas generadas dinámicamente -->
+          </div>
+        </div>
+
+        <!-- ACCIONES / REFLEXIÓN TRAS ACIERTO (CENTRADAS) -->
+        <div class="activity-action-zone">
+          <div class="reflection-box-vocecita" id="scene-reflection-box" style="display: none;">
+            <div class="reflection-header-vocecita">
+              <span class="reflection-tag">💭 Teoría de la mente / Reflexión</span>
+              <select id="teacher-level-select" class="teacher-select">
+                <option value="infantil3">Infantil 3 años</option>
+                <option value="infantil4">Infantil 4 años</option>
+                <option value="infantil5">Infantil 5 años</option>
+                <option value="primaria">Primer ciclo de Primaria</option>
+                <option value="educacion_especial">Educación especial</option>
+              </select>
+            </div>
+            <p class="reflection-question" id="reflection-question-text">¿Cómo te sentirías tú?</p>
+            <p class="reflection-tom-sub" id="reflection-tom-text"></p>
+          </div>
+
+          <button id="scene-next-btn" class="btn-primary btn-next-vocecita" style="display: none;">
+            <span>🎲</span> ¡SEGUIR JUGANDO!
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. PANTALLA FINAL (CELEBRACIÓN) -->
+    <section id="screen-final" class="screen">
+      <div class="final-card">
+        <div class="final-badge">🏆🎃🍬</div>
+        <h2 class="final-title">¡MISIÓN CUMPLIDA!</h2>
+        <p class="final-desc">
+          ¡Enhorabuena, equipo de ayudantes! Gracias a vuestra ayuda, <strong>mTiny</strong> ya sabe reconocer las emociones y los estados de los personajes de Halloween.
+          <br><br>
+          La bolsa está repleta de caramelos y mTiny ya está listo para salir a celebrar <em>truco o trato</em> junto a Sara y sus amigos.
+        </p>
+
+        <div class="action-row">
+          <button id="btn-play-again" class="btn-primary">
+            <span>🔄</span> ¡VOLVER A JUGAR!
+          </button>
+          <button id="btn-restart-home" class="btn-primary" style="background: linear-gradient(135deg, #64748b, #475569); border-bottom-color: #334155;">
+            <span>🏠</span> INICIO
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CANVAS DE CONFETI PARA CELEBRACIONES -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- SCRIPTS MODULARES (Carga universal sin CORS) -->
+  <script src="data/masterData.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+
